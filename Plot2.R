@@ -28,14 +28,13 @@ colnames(x)<-"datetime"
 
 select<-cbind(select,x)
 
+##set pgn size
+png("plot2.png", width=480, height=480)
+
 ##plot line graph
 plot(select$datetime, select$Global_active_power
      ,type="l"
      ,xlab = " "
      ,ylab="Global Active Power (kilowatts)")
 
-##copy plot
-dev.copy(png, file="plot2.png"
-         ,width = 480
-         ,height = 480)
 dev.off()

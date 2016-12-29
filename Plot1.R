@@ -15,6 +15,9 @@ data<-fread(filepath
 ##change column class into Date
 data$Date<-as.Date(data$Date, format="%d/%m/%Y")
 
+##set pgn size
+png("plot1.png", width=480, height=480)
+
 ##plot histogram
 with(subset(data, data$Date>="2007-02-01" & data$Date<="2007-02-02")
      ,hist(Global_active_power
@@ -22,8 +25,4 @@ with(subset(data, data$Date>="2007-02-01" & data$Date<="2007-02-02")
            ,xlab = "Global Active Power (kilowatts)"
            ,col = "red"))
 
-##copy plot
-dev.copy(png, file="plot1.png"
-         ,width = 480
-         ,height = 480)
 dev.off()
